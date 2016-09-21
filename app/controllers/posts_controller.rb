@@ -49,9 +49,11 @@ class PostsController < ApplicationController
         # format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.html { redirect_to root_path, notice: 'Post was successfully updated' }
         format.json { render :show, status: :ok, location: @post }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

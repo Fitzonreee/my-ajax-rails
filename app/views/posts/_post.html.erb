@@ -17,7 +17,7 @@
 </div>
 
 <!-- Modal -->
-<%= form_for(post, :method => :put) do |f| %>
+<%= form_for(post, :method => :put, remote: true) do |f| %>
   <div class="modal fade" id="updatepost_<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
