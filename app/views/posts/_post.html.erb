@@ -1,0 +1,48 @@
+<div class="col-md-4 blog-main box text-center" id="post_<%= post.id %>">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title" style="margin-bottom:8px !important;"><%= post.title %></h3>
+      <span class="label label-default"><%= time_ago_in_words(post.created_at) %> ago</span>
+    </div>
+    <div class="panel-body">
+      <p><%= post.content %></p>
+      <br>
+      <div class="btn-group" role="group" aria-label="...">
+        <!-- <%= link_to 'Edit', edit_post_path(post), class: "btn btn-danger" %> -->
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#updatepost_<%= post.id %>">Edit</button>
+        <%= link_to 'Destroy', post, method: :delete, class: "btn btn-danger", style: "color:white" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<%= form_for(post, :method => :put) do |f| %>
+  <div class="modal fade" id="updatepost_<%= post.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Edit</h4>
+        </div>
+        <div class="modal-body">
+          <%= post.id %>
+          <br>
+          <%= post.title %>
+          <div class="field">
+            <%= f.label :title %><br>
+            <%= f.text_area :title, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :content %><br>
+            <%= f.text_area :content, class: "form-control" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="updatepost_<%= post.id %>"class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= submit_tag "Update", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
