@@ -1,1 +1,19 @@
 // This file has to have the same name as the action in the controller
+console.log("Post was created!");
+
+// Hide the create Post modal
+$('#newPost').modal('hide');
+console.log("The post hides!");
+
+
+// Empty the field forms
+$('.post_title').val('');
+$('.post_content').val('');
+console.log("The form fields clear!");
+
+// Add the Post to the beginning of the page
+// put the j before render to let it know it's JavaScript
+$('#container_posts').prepend('<%= j render @post %>');
+
+// Get the Post you just added, animate it onto the page
+$('#post_<%= @post_id %>').hide().fadeIn(1000);
