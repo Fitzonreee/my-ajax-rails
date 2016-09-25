@@ -11,7 +11,9 @@
   <br>
   <br>
   <div class="row" id="container_posts">
+    <div class="grid">
       <%= render @posts %>
+    </div>
   </div>
 
   <%= form_for(@post, remote: true) do |f| %>

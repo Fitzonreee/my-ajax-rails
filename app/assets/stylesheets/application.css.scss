@@ -14,13 +14,11 @@
  *= require_self
  */
 
+ @import 'https://fonts.googleapis.com/css?family=Roboto:100';
+
 * {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 100;
 }
 
 body {margin: 0}
-
-.panel {
-  min-height: 330px !important;
-}

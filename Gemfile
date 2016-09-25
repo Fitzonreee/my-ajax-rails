@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # I added these
-gem 'masonry-rails', '~> 0.2.4'
+gem 'masonry2-rails'
 gem 'hirb', '~> 0.7.3'
 
 
