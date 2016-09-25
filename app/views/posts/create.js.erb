@@ -1,31 +1,38 @@
 // This file has to have the same name as the action in the controller
-console.log("Post was created!");
+// console.log("Post was created!");
 
 // Hide the create Post modal
 $('#newPost').modal('hide');
-console.log("The post hides!");
-
+// console.log("The modal hides!");
 
 // Empty the field forms
 $('.post_title').val('');
 $('.post_content').val('');
-console.log("The form fields clear!");
+// console.log("The form fields clear!");
 
 // Add the Post to the beginning of the page
 // put the j before render to let it know it's JavaScript
-$('#container_posts').append('<%= j render @post %>');
+$('#container_posts > .grid').append('<%= j render @post %>').ready(function() {
+  $('.grid').masonry({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  });
+  console.log('Post appended to the page!');
+});
+
 
 
 
 // Get the Post you just added, animate it onto the page
-$('#post_<%= @post_id %>').hide().fadeIn(1000);
-
-// This is not working
-var $grid = $('.grid').masonry({
-  itemSelector: '.grid-item',
-  percentPosition: true,
-  columnWidth: '.grid-sizer'
+$('#post_<%= @post_id %>').hide().fadeIn(1000, function() {
+  $('.grid').masonry({
+    itemSelector: '.grid-item',
+    percentPosition: true,
+    columnWidth: '.grid-sizer'
+  });
 });
-
-
 console.log('This line was read');
+
+
+// This is not working!!!!
