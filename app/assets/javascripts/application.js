@@ -22,5 +22,4 @@ $(document).ready(function() {
     percentPosition: true,
     columnWidth: '.grid-sizer'
   });
-
 });

@@ -9,14 +9,13 @@
   <br>
   <hr>
   <br>
-  <br>
   <div class="row" id="container_posts">
     <div class="grid">
       <div class="grid-sizer"></div>
       <%= render @posts %>
     </div>
   </div>
-
+  <!-- new panel modal -->
   <%= form_for(@post, remote: true) do |f| %>
     <div class="modal fade" id="newPost" tabindex="-1" role="dialog" aria-labelledby="newPostLabel">
       <div class="modal-dialog" role="document">
